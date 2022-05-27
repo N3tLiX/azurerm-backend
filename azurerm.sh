@@ -103,7 +103,7 @@ if [[ $? != 0 ]]; then
     exit -1
   fi
 else
-	echo "[$TF_STATE_BLOB_CONTAINER_NAME] blob container already exists in [$TF_STATE_BLOB_ACCOUNT_NAME] storage account"
+  echo "[$TF_STATE_BLOB_CONTAINER_NAME] blob container already exists in [$TF_STATE_BLOB_ACCOUNT_NAME] storage account"
 fi
 echo "##vso[task.setvariable variable=SubscriptionName;isOutput=true;]$TF_STATE_BLOB_SUBSCRIPTION_NAME"
 echo "##vso[task.setvariable variable=StorageAccountName;isOutput=true;]$TF_STATE_BLOB_ACCOUNT_NAME"

@@ -22,6 +22,20 @@ $ source azurerm.sh \
     TF_STATE_BLOB_FILE=""
 ```
 
+## Exports and output Variables
+
+```sh
+bash:
+  TF_STATE_BLOB_SAS_TOKEN
+
+Azure DevOps Pipeline Variables:
+  ##vso[task.setvariable variable=SubscriptionName;isOutput=true;]$TF_STATE_BLOB_SUBSCRIPTION_NAME
+  ##vso[task.setvariable variable=StorageAccountName;isOutput=true;]$TF_STATE_BLOB_ACCOUNT_NAME
+  ##vso[task.setvariable variable=BlobContainer;isOutput=true;]$TF_STATE_BLOB_CONTAINER_NAME
+  ##vso[task.setvariable variable=SasToken;isOutput=true;]$TF_STATE_BLOB_SAS_TOKEN
+  ##vso[task.setvariable variable=succeeded;isOutput=true;]true
+```
+
 Find an example, and more documentation at https://github.com/n3tlix/examples
 ## Authors
 
