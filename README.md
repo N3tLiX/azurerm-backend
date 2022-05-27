@@ -1,12 +1,25 @@
-# azure-terraform-[module_name]
+# azurerm-backend
 
-Create a simple [module_full_name] in Azure
+Create an Azure Storage Account to store the Terraform stage file (tfstage).
 
-## Usage in Terraform 0.13
-```hcl
-module "example" {
-  source  = "github.com/N3tLiX/modules//[module_folder]"
-}
+## Usage AzuerCLI
+```sh
+$ # Export the Azure Subscription Login data (Linux/MacOS)
+$ export ARM_SUBSCRIPTION_ID=""
+$ export ARM_CLIENT_ID=""
+$ export ARM_CLIENT_SECRET=""
+$ export ARM_TENANT_ID=""
+$ # Export the Backend Storage Variables (Linux/MacOs)
+$ # Create the Storage Backend
+$ az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
+$ az account set --subscription $ARM_SUBSCRIPTION_ID
+$ source azurerm.sh \
+    TF_STATE_BLOB_ACCOUNT_RESOURCE_GROUP="" \
+    TF_STATE_BLOB_ACCOUT_LOCATION="" \
+    TF_STATE_BLOB_ACCOUNT_NAME="" \
+    TF_STATE_BLOB_ACCOUNT_SKU="" \
+    TF_STATE_BLOB_CONTAINER_NAME="" \
+    TF_STATE_BLOB_FILE=""
 ```
 
 Find an example, and more documentation at https://github.com/n3tlix/examples
